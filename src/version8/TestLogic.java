@@ -58,13 +58,13 @@ public class TestLogic {
 		final Comparator<Person> compareDecAsc = comparing(Person::getName, nullsLast(reverseOrder()))
 				.thenComparing(Person::getAge, reverseOrder());
 
-		resultList = this.sortPersonList(people, compareAsc);
+		resultList = this.sortList(people, compareAsc);
 		printPeople("Age,Name共に昇順: ", resultList);
 
-		resultList = this.sortPersonList(people, compareDec);
+		resultList = this.sortList(people, compareDec);
 		printPeople("Age,Name共に昇順: ", resultList);
 		
-		resultList = this.sortPersonList(people, compareDecAsc);
+		resultList = this.sortList(people, compareDecAsc);
 		printPeople("Age,Name共に降順: ", resultList);
 	}
 
@@ -75,7 +75,7 @@ public class TestLogic {
 	 * @param comparator
 	 * @return Sortedリスト
 	 */
-	private <E> List<E> sortPersonList(List<E> list, Comparator<E> comparator) {
+	private <E> List<E> sortList(List<E> list, Comparator<E> comparator) {
 		return list.stream().sorted(comparator).collect(toList());
 	}
 
